@@ -3,7 +3,7 @@ var remoteAttestationAction = {
   name: "REMOTE_ATTESTATION",
   similes: ["REMOTE_ATTESTATION", "TEE_REMOTE_ATTESTATION", "TEE_ATTESTATION"],
   description: "Generate a remote attestation to prove that the agent is running in a TEE",
-  handler: async (runtime, message, _state, _options, callback) => {
+  handler: async (runtime, _message, _state, _options, callback) => {
     try {
       const endpoint = runtime.getSetting("TEE_MARLIN_ATTESTATION_ENDPOINT") ?? "http://127.0.0.1:1350";
       const response = await fetch(`${endpoint}/attestation/hex`);
